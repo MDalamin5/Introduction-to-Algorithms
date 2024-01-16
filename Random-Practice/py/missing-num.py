@@ -15,5 +15,3 @@ tot_num = ((num + 1) * num)/2
 
 missing_num = tot_num - sum
 print(int(missing_num))
-
-    
