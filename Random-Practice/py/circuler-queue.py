@@ -4,5 +4,6 @@ class Node:
         self.next = None
         
 class Queue:
-    def __init__(self
+    def __init__(self):
+        
         
