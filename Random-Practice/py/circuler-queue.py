@@ -8,6 +8,8 @@ class Queue:
         self.head = None
         
     def addData(self, data):
+        newNode = Node(data)
+        
 
 
         
