@@ -6,9 +6,11 @@ class Node:
 class Queue:
     def __init__(self):
         self.head = None
+        self.tail = None
         
-    def addData(self, data):
+    def addDataAtTail(self, data):
         newNode = Node(data)
+        
         
 
 
