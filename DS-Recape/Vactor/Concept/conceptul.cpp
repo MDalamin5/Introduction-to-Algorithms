@@ -21,11 +21,14 @@ int main()
     cout<<"the vector is empty or not: "<<a.empty()<<endl;
 
     // use of empty function
+    
+    /*
     while(!a.empty())
     {
         cout<<a.back()<<endl;
-        a.pop_back();
+       a.pop_back();
     }
+    */
 
     // power of resize
     vector<int>v(4);
@@ -37,4 +40,22 @@ int main()
     for(auto x: v)
     cout<< x<<" ";
     cout<<endl;
+    
+    // sorting first vector
+    sort(a.begin(), a.end());
+    for(auto val : a)
+        cout<<val<< " ";
+    cout<<endl;
+    sort(a.rbegin(), a.rend());
+
+    
+    for(auto val : a)
+        cout<<val<< " ";
+    cout<<endl;
+
+    cout<<"max elements is vactor is: "<< *max_element(a.begin(), a.end())<<endl;
+    cout<<"min elements is vactor is: "<< *min_element(a.begin(), a.end())<<endl;
+
+    cout<<"max elements is vactor is: "<< *max_element(a.begin()+2, a.begin() + 5)<<endl;
+    cout<<"min elements is vactor is: "<< *min_element(a.begin() + 5, a.end())<<endl;
 }
