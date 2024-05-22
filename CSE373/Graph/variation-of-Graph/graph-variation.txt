@@ -1,1 +1,6 @@
 1. unwaighted vs waight
+2. directd vs undricted
+3. bipartation graph
+Tree:
+    -no cycle
+    -every two node have unique path
