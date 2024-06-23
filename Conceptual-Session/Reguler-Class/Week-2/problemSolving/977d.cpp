@@ -4,64 +4,53 @@ using namespace std;
 typedef long long ll;
 map<ll, vector<ll>> adj;
 map<ll, bool> visited;
-vector<ll> ans;
 int n;
-bool found = false;
 
+vector<ll> ans;
+int found = 0;
 void bfs(ll s)
 {
-    if (ans.size() == n)
-    {
-        found = true;
-        return;
-    }
 
     queue<ll> q;
-    q.push(s);
     visited[s] = true;
+    q.push(s);
     ans.push_back(s);
 
     while (!q.empty())
     {
         if (ans.size() == n)
         {
-            found = true;
+            found = 1;
             return;
         }
-        auto parent = q.front();
+        ll parent = q.front();
         q.pop();
 
         for (ll child : adj[parent])
         {
-            if (parent * 2 == child && !visited[child])
+            if ((parent * 2) == child && !visited[child])
             {
-                ans.push_back(child);
                 q.push(child);
+                ans.push_back(child);
                 visited[child] = true;
             }
             else if ((parent % 3 == 0) && (parent / 3) == child && !visited[child])
             {
-                ans.push_back(child);
                 q.push(child);
+                ans.push_back(child);
                 visited[child] = true;
             }
         }
     }
 }
-
 void init()
 {
     ans.clear();
     visited.clear();
 }
-
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     cin >> n;
-
     vector<ll> v(n);
     for (int i = 0; i < n; i++)
         cin >> v[i];
@@ -77,15 +66,27 @@ int main()
 
     for (auto val : adj)
     {
+        cout << val.first << "-->";
+        for (auto i : val.second)
+        {
+            cout << i << " ";
+        }
+        cout << endl;
+    }
 
+    for (auto val : adj)
+    {
         bfs(val.first);
-        if (found)
+        if (found == 1)
             break;
+        // cout << found << " adj->" << val.first << "size of and: " << ans.size() << endl;
         init();
     }
 
-    for (auto result : ans)
+    for (auto val : ans)
     {
-        cout << result << " ";
+        cout << val << " ";
     }
+
+    return 0;
 }
